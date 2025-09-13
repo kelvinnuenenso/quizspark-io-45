@@ -354,11 +354,314 @@ export default function Dashboard() {
                 </TabsContent>
 
                 <TabsContent value="testes">
-                  <Card className="p-6">
-                    <div className="text-center py-12">
-                      <p className="text-muted-foreground">Testes A/B em desenvolvimento...</p>
+                  <div className="space-y-6">
+                    {/* A/B Tests Header */}
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h2 className="text-2xl font-bold mb-2">Testes A/B</h2>
+                        <p className="text-muted-foreground">Otimize seu quiz testando diferentes variações</p>
+                      </div>
+                      <Button className="bg-blue-600 hover:bg-blue-700">
+                        <Plus className="h-4 w-4 mr-2" />
+                        Novo Teste
+                      </Button>
                     </div>
-                  </Card>
+
+                    {/* Sub tabs for A/B Tests */}
+                    <Tabs defaultValue="todos" className="w-full">
+                      <TabsList className="grid w-fit grid-cols-3 mb-6">
+                        <TabsTrigger value="todos">Todos os Testes</TabsTrigger>
+                        <TabsTrigger value="insights">Insights</TabsTrigger>
+                        <TabsTrigger value="configuracoes">Configurações</TabsTrigger>
+                      </TabsList>
+
+                      <TabsContent value="todos">
+                        <div className="space-y-6">
+                          {/* First A/B Test Card */}
+                          <Card className="border-l-4 border-l-green-500">
+                            <CardContent className="p-6">
+                              <div className="flex items-center justify-between mb-4">
+                                <div className="flex items-center gap-3">
+                                  <div>
+                                    <h3 className="text-lg font-semibold">Teste de Botão Principal</h3>
+                                    <p className="text-sm text-muted-foreground">Mudando a cor do botão para verde aumentará a conversão</p>
+                                  </div>
+                                  <Badge variant="secondary" className="bg-blue-100 text-blue-800">Em Execução</Badge>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <Button variant="outline" size="sm">
+                                    <div className="h-4 w-4 mr-2">⏸️</div>
+                                    Pausar
+                                  </Button>
+                                  <Button variant="outline" size="sm">
+                                    <Download className="h-4 w-4 mr-2" />
+                                    Exportar
+                                  </Button>
+                                </div>
+                              </div>
+
+                              {/* A/B Test Comparison */}
+                              <div className="grid grid-cols-2 gap-8 mb-6">
+                                {/* Original Version */}
+                                <div>
+                                  <h4 className="font-medium mb-3">Original (Azul)</h4>
+                                  <div className="grid grid-cols-3 gap-4 mb-3">
+                                    <div>
+                                      <p className="text-sm text-muted-foreground">Visitantes</p>
+                                      <p className="text-2xl font-bold">625</p>
+                                    </div>
+                                    <div>
+                                      <p className="text-sm text-muted-foreground">Conversões</p>
+                                      <p className="text-2xl font-bold">98</p>
+                                    </div>
+                                    <div>
+                                      <p className="text-sm text-muted-foreground">Taxa</p>
+                                      <p className="text-2xl font-bold text-blue-600">15.68%</p>
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center gap-2 mb-2">
+                                    <span className="text-sm">Confiança</span>
+                                    <span className="text-sm ml-auto">95%</span>
+                                  </div>
+                                  <div className="w-full bg-gray-200 rounded-full h-2">
+                                    <div className="bg-blue-600 h-2 rounded-full" style={{ width: '95%' }}></div>
+                                  </div>
+                                </div>
+
+                                {/* Variation Version */}
+                                <div className="relative">
+                                  <div className="absolute -top-2 -right-2">
+                                    <Badge className="bg-blue-600 text-white">Vencedor</Badge>
+                                  </div>
+                                  <h4 className="font-medium mb-3">Variação (Verde)</h4>
+                                  <div className="grid grid-cols-3 gap-4 mb-3">
+                                    <div>
+                                      <p className="text-sm text-muted-foreground">Visitantes</p>
+                                      <p className="text-2xl font-bold">625</p>
+                                    </div>
+                                    <div>
+                                      <p className="text-sm text-muted-foreground">Conversões</p>
+                                      <p className="text-2xl font-bold">112</p>
+                                    </div>
+                                    <div>
+                                      <p className="text-sm text-muted-foreground">Taxa</p>
+                                      <p className="text-2xl font-bold text-blue-600">17.92%</p>
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center gap-2 mb-2">
+                                    <span className="text-sm">Confiança</span>
+                                    <span className="text-sm ml-auto">95%</span>
+                                  </div>
+                                  <div className="w-full bg-gray-200 rounded-full h-2">
+                                    <div className="bg-blue-600 h-2 rounded-full" style={{ width: '95%' }}></div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Current Result */}
+                              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                                <div className="flex items-center justify-between">
+                                  <div>
+                                    <h5 className="font-medium text-blue-900">Resultado Atual</h5>
+                                    <p className="text-sm text-blue-700">Variação está 14.3% melhor</p>
+                                  </div>
+                                  <div className="text-right">
+                                    <p className="text-sm text-muted-foreground">Significância</p>
+                                    <p className="text-xl font-bold text-green-600">95%</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+
+                          {/* Second A/B Test Card */}
+                          <Card className="border-l-4 border-l-gray-300">
+                            <CardContent className="p-6">
+                              <div className="flex items-center justify-between mb-4">
+                                <div className="flex items-center gap-3">
+                                  <div>
+                                    <h3 className="text-lg font-semibold">Teste de Botão Principal</h3>
+                                    <p className="text-sm text-muted-foreground">Mudando a cor do botão para verde aumentará a conversão</p>
+                                  </div>
+                                  <Badge variant="outline" className="bg-blue-100 text-blue-800">Executando</Badge>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <Button variant="outline" size="sm">
+                                    <div className="h-4 w-4 mr-2">⏸️</div>
+                                    Pausar
+                                  </Button>
+                                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                                    Concluir
+                                  </Button>
+                                  <Button variant="outline" size="sm">
+                                    <Download className="h-4 w-4 mr-2" />
+                                  </Button>
+                                </div>
+                              </div>
+
+                              <div className="grid grid-cols-3 gap-6 text-center mb-4">
+                                <div>
+                                  <p className="text-3xl font-bold">1.250</p>
+                                  <p className="text-sm text-muted-foreground">Total de Visitantes</p>
+                                </div>
+                                <div>
+                                  <p className="text-3xl font-bold">14 dias</p>
+                                  <p className="text-sm text-muted-foreground">Duração</p>
+                                </div>
+                                <div>
+                                  <p className="text-3xl font-bold text-green-600">95%</p>
+                                  <p className="text-sm text-muted-foreground">Significância</p>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+
+                          {/* Third A/B Test Card */}
+                          <Card className="border-l-4 border-l-gray-300">
+                            <CardContent className="p-6">
+                              <div className="flex items-center justify-between mb-4">
+                                <div className="flex items-center gap-3">
+                                  <div>
+                                    <h3 className="text-lg font-semibold">Teste de Título da Pergunta</h3>
+                                    <p className="text-sm text-muted-foreground">Título mais direto melhorará o engajamento</p>
+                                  </div>
+                                  <Badge variant="outline" className="text-green-800 bg-green-100">Concluído</Badge>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <Button variant="outline" size="sm">
+                                    <Download className="h-4 w-4 mr-2" />
+                                  </Button>
+                                </div>
+                              </div>
+
+                              <div className="grid grid-cols-3 gap-6 text-center">
+                                <div>
+                                  <p className="text-3xl font-bold">2.840</p>
+                                  <p className="text-sm text-muted-foreground">Total de Visitantes</p>
+                                </div>
+                                <div>
+                                  <p className="text-3xl font-bold">14 dias</p>
+                                  <p className="text-sm text-muted-foreground">Duração</p>
+                                </div>
+                                <div>
+                                  <p className="text-3xl font-bold text-green-600">98%</p>
+                                  <p className="text-sm text-muted-foreground">Significância</p>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      </TabsContent>
+
+                      <TabsContent value="insights">
+                        <div className="grid grid-cols-2 gap-6">
+                          {/* Performance Insights */}
+                          <Card className="p-6">
+                            <h3 className="text-lg font-semibold mb-4">Insights de Performance</h3>
+                            <div className="space-y-3">
+                              <div className="flex items-start gap-3 p-3 bg-green-50 border border-green-200 rounded-lg">
+                                <div className="w-6 h-6 bg-green-500 rounded flex items-center justify-center">
+                                  <span className="text-white text-xs">✓</span>
+                                </div>
+                                <div>
+                                  <p className="font-medium text-green-900">Melhores Práticas</p>
+                                  <p className="text-sm text-green-700">Botões verdes mostraram 14% mais conversões que azuis.</p>
+                                </div>
+                              </div>
+                              
+                              <div className="flex items-start gap-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                                <div className="w-6 h-6 bg-blue-500 rounded flex items-center justify-center">
+                                  <span className="text-white text-xs">📊</span>
+                                </div>
+                                <div>
+                                  <p className="font-medium text-blue-900">Estatística</p>
+                                  <p className="text-sm text-blue-700">Títulos mais diretos aumentaram engajamento em 13%.</p>
+                                </div>
+                              </div>
+                              
+                              <div className="flex items-start gap-3 p-3 bg-purple-50 border border-purple-200 rounded-lg">
+                                <div className="w-6 h-6 bg-purple-500 rounded flex items-center justify-center">
+                                  <span className="text-white text-xs">💡</span>
+                                </div>
+                                <div>
+                                  <p className="font-medium text-purple-900">Recomendação</p>
+                                  <p className="text-sm text-purple-700">Teste próximo: posição dos elementos na tela.</p>
+                                </div>
+                              </div>
+                            </div>
+                          </Card>
+
+                          {/* Performance History */}
+                          <Card className="p-6">
+                            <h3 className="text-lg font-semibold mb-4">Histórico de Melhorias</h3>
+                            <div className="h-48 flex items-end justify-between px-4">
+                              {/* Simple line chart representation */}
+                              <div className="flex items-end h-full w-full">
+                                <div className="w-full h-full relative">
+                                  <svg className="w-full h-full" viewBox="0 0 300 150">
+                                    <polyline
+                                      fill="none"
+                                      stroke="#3b82f6"
+                                      strokeWidth="2"
+                                      points="0,140 60,120 120,100 180,80 240,60 300,40"
+                                    />
+                                    <circle cx="60" cy="120" r="3" fill="#3b82f6" />
+                                    <circle cx="120" cy="100" r="3" fill="#3b82f6" />
+                                    <circle cx="180" cy="80" r="3" fill="#3b82f6" />
+                                    <circle cx="240" cy="60" r="3" fill="#3b82f6" />
+                                    <circle cx="300" cy="40" r="3" fill="#3b82f6" />
+                                  </svg>
+                                  <div className="absolute bottom-0 left-0 text-xs text-muted-foreground">Jan</div>
+                                  <div className="absolute bottom-0 left-1/4 text-xs text-muted-foreground">Fev</div>
+                                  <div className="absolute bottom-0 left-2/4 text-xs text-muted-foreground">Mar</div>
+                                  <div className="absolute bottom-0 left-3/4 text-xs text-muted-foreground">Abr</div>
+                                  <div className="absolute bottom-0 right-0 text-xs text-muted-foreground">Mai</div>
+                                </div>
+                              </div>
+                            </div>
+                          </Card>
+                        </div>
+                      </TabsContent>
+
+                      <TabsContent value="configuracoes">
+                        <Card className="p-6">
+                          <h3 className="text-lg font-semibold mb-6">Configurações de Teste A/B</h3>
+                          
+                          <div className="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                              <label className="block text-sm font-medium mb-2">Nível de Significância</label>
+                              <select className="w-full border border-border rounded-md px-3 py-2 bg-background">
+                                <option>95%</option>
+                                <option>90%</option>
+                                <option>99%</option>
+                              </select>
+                            </div>
+                            
+                            <div>
+                              <label className="block text-sm font-medium mb-2">Duração Padrão (dias)</label>
+                              <input 
+                                type="number" 
+                                value="14" 
+                                className="w-full border border-border rounded-md px-3 py-2 bg-background"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="space-y-4">
+                            <div className="flex items-center gap-3">
+                              <input type="checkbox" id="auto-stop" className="rounded" />
+                              <label htmlFor="auto-stop" className="text-sm">Parar automaticamente quando significativo</label>
+                            </div>
+                            
+                            <div className="flex items-center gap-3">
+                              <input type="checkbox" id="auto-implement" className="rounded" />
+                              <label htmlFor="auto-implement" className="text-sm">Implementar vencedor automaticamente</label>
+                            </div>
+                          </div>
+                        </Card>
+                      </TabsContent>
+                    </Tabs>
+                  </div>
                 </TabsContent>
 
                 <TabsContent value="coorte">
