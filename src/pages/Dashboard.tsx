@@ -337,18 +337,123 @@ export default function Dashboard() {
 
                     <TabsContent value="dados">
                       <Card className="p-6">
-                        <div className="text-center py-12">
-                          <p className="text-muted-foreground">Dados detalhados em desenvolvimento...</p>
+                        <h3 className="text-lg font-semibold mb-6">Dados Detalhados</h3>
+                        
+                        <div className="space-y-4">
+                          {/* Question 1 Data */}
+                          <div className="flex items-center justify-between p-4 border border-border rounded-lg">
+                            <div className="flex items-center gap-4">
+                              <div className="px-3 py-1 bg-gray-100 rounded text-sm font-medium">question</div>
+                              <div className="font-medium">question-1</div>
+                              <div className="ml-auto">
+                                <Badge className="bg-blue-600 text-white">85% conversão</Badge>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="grid grid-cols-3 gap-8 pl-8">
+                            <div>
+                              <p className="text-sm text-muted-foreground mb-1">Cliques:</p>
+                              <p className="text-xl font-semibold">245</p>
+                            </div>
+                            <div>
+                              <p className="text-sm text-muted-foreground mb-1">Hovers:</p>
+                              <p className="text-xl font-semibold">389</p>
+                            </div>
+                            <div>
+                              <p className="text-sm text-muted-foreground mb-1">Tempo:</p>
+                              <p className="text-xl font-semibold">13s</p>
+                            </div>
+                          </div>
+
+                          {/* Option 1a Data */}
+                          <div className="flex items-center justify-between p-4 border border-border rounded-lg ml-8">
+                            <div className="flex items-center gap-4">
+                              <div className="px-3 py-1 bg-gray-100 rounded text-sm font-medium">option</div>
+                              <div className="font-medium">option-1a</div>
+                              <div className="ml-auto">
+                                <Badge className="bg-blue-600 text-white">92% conversão</Badge>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="grid grid-cols-3 gap-8 pl-16">
+                            <div>
+                              <p className="text-sm text-muted-foreground mb-1">Cliques:</p>
+                              <p className="text-xl font-semibold">156</p>
+                            </div>
+                            <div>
+                              <p className="text-sm text-muted-foreground mb-1">Hovers:</p>
+                              <p className="text-xl font-semibold">234</p>
+                            </div>
+                            <div>
+                              <p className="text-sm text-muted-foreground mb-1">Tempo:</p>
+                              <p className="text-xl font-semibold">3s</p>
+                            </div>
+                          </div>
                         </div>
                       </Card>
                     </TabsContent>
 
                     <TabsContent value="insights">
-                      <Card className="p-6">
-                        <div className="text-center py-12">
-                          <p className="text-muted-foreground">Insights em desenvolvimento...</p>
-                        </div>
-                      </Card>
+                      <div className="grid grid-cols-2 gap-6">
+                        {/* Engagement Insights */}
+                        <Card className="p-6">
+                          <h3 className="text-lg font-semibold mb-4">Insights de Engajamento</h3>
+                          <div className="space-y-3">
+                            <div className="flex items-start gap-3 p-3 bg-green-50 border border-green-200 rounded-lg">
+                              <div className="w-6 h-6 bg-green-500 rounded flex items-center justify-center">
+                                <span className="text-white text-xs">✓</span>
+                              </div>
+                              <div>
+                                <p className="font-medium text-green-900">Ponto Forte</p>
+                                <p className="text-sm text-green-700">O botão "Próximo" tem alta taxa de conversão (95%), indicando boa usabilidade.</p>
+                              </div>
+                            </div>
+                            
+                            <div className="flex items-start gap-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                              <div className="w-6 h-6 bg-yellow-500 rounded flex items-center justify-center">
+                                <span className="text-white text-xs">⚠</span>
+                              </div>
+                              <div>
+                                <p className="font-medium text-yellow-900">Atenção</p>
+                                <p className="text-sm text-yellow-700">A barra de progresso recebe poucos cliques. Considere torná-la mais interativa.</p>
+                              </div>
+                            </div>
+                            
+                            <div className="flex items-start gap-3 p-3 bg-red-50 border border-red-200 rounded-lg">
+                              <div className="w-6 h-6 bg-red-500 rounded flex items-center justify-center">
+                                <span className="text-white text-xs">🚨</span>
+                              </div>
+                              <div>
+                                <p className="font-medium text-red-900">Problema</p>
+                                <p className="text-sm text-red-700">Opção 1B tem baixo engajamento. Considere reformular o texto ou posição.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </Card>
+
+                        {/* Optimization Recommendations */}
+                        <Card className="p-6">
+                          <h3 className="text-lg font-semibold mb-4">Recomendações de Otimização</h3>
+                          <div className="space-y-4">
+                            <div>
+                              <h4 className="font-medium mb-2">1. Reposicionar Elementos</h4>
+                              <p className="text-sm text-muted-foreground">Mova elementos com baixo engajamento para posições mais centrais.</p>
+                            </div>
+                            
+                            <div>
+                              <h4 className="font-medium mb-2">2. Melhorar CTAs</h4>
+                              <p className="text-sm text-muted-foreground">Adicione animações ou cores mais chamativas nos botões principais.</p>
+                            </div>
+                            
+                            <div>
+                              <h4 className="font-medium mb-2">3. Teste A/B</h4>
+                              <p className="text-sm text-muted-foreground">Teste diferentes layouts baseados nos dados do mapa de calor.</p>
+                            </div>
+                          </div>
+                        </Card>
+                      </div>
                     </TabsContent>
                   </Tabs>
                 </TabsContent>
@@ -665,11 +770,333 @@ export default function Dashboard() {
                 </TabsContent>
 
                 <TabsContent value="coorte">
-                  <Card className="p-6">
-                    <div className="text-center py-12">
-                      <p className="text-muted-foreground">Análise de Coorte em desenvolvimento...</p>
+                  <div className="space-y-6">
+                    {/* Cohort Analysis Header */}
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h2 className="text-2xl font-bold mb-2">Análise de Coorte</h2>
+                        <p className="text-muted-foreground">Acompanhe a retenção de usuários ao longo do tempo</p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <select className="border border-border rounded-md px-3 py-2 text-sm bg-background">
+                          <option>Mensal</option>
+                          <option>Semanal</option>
+                          <option>Diário</option>
+                        </select>
+                        <select className="border border-border rounded-md px-3 py-2 text-sm bg-background">
+                          <option>90 dias</option>
+                          <option>30 dias</option>
+                          <option>180 dias</option>
+                        </select>
+                        <Button variant="outline" size="sm">
+                          <Download className="h-4 w-4 mr-2" />
+                          Exportar
+                        </Button>
+                      </div>
                     </div>
-                  </Card>
+
+                    {/* Cohort Stats */}
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
+                      <Card className="p-6">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm text-muted-foreground mb-1">Total de Usuários</p>
+                            <p className="text-3xl font-bold">821</p>
+                          </div>
+                          <div className="p-2 rounded-lg bg-blue-500">
+                            <Users className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                      </Card>
+
+                      <Card className="p-6">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm text-muted-foreground mb-1">Retenção Média</p>
+                            <p className="text-3xl font-bold text-green-600">84.1%</p>
+                            <p className="text-xs text-green-600">↑ 19.9%</p>
+                          </div>
+                          <div className="p-2 rounded-lg bg-green-500">
+                            <TrendingUp className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                      </Card>
+
+                      <Card className="p-6">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm text-muted-foreground mb-1">Melhor Coorte</p>
+                            <p className="text-3xl font-bold">abr. de 2025</p>
+                            <p className="text-xs text-green-600">Top performer</p>
+                          </div>
+                          <div className="p-2 rounded-lg bg-purple-500">
+                            <div className="h-6 w-6 text-white flex items-center justify-center">📈</div>
+                          </div>
+                        </div>
+                      </Card>
+
+                      <Card className="p-6">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm text-muted-foreground mb-1">Pior Coorte</p>
+                            <p className="text-3xl font-bold">jun. de 2025</p>
+                            <p className="text-xs text-red-600">Needs attention</p>
+                          </div>
+                          <div className="p-2 rounded-lg bg-red-500">
+                            <div className="h-6 w-6 text-white flex items-center justify-center">⚠️</div>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+
+                    {/* Sub tabs for Cohort Analysis */}
+                    <Tabs defaultValue="mapa-coorte" className="w-full">
+                      <TabsList className="grid w-fit grid-cols-3 mb-6">
+                        <TabsTrigger value="mapa-coorte">Mapa de Calor</TabsTrigger>
+                        <TabsTrigger value="tendencias">Tendências</TabsTrigger>
+                        <TabsTrigger value="insights-coorte">Insights</TabsTrigger>
+                      </TabsList>
+
+                      <TabsContent value="mapa-coorte">
+                        <Card className="p-6">
+                          <h3 className="text-lg font-semibold mb-4">Tabela de Retenção por Coorte</h3>
+                          <p className="text-sm text-muted-foreground mb-6">Cada linha representa uma coorte, cada coluna um período de tempo</p>
+                          
+                          {/* Cohort Table */}
+                          <div className="overflow-x-auto">
+                            <table className="w-full">
+                              <thead>
+                                <tr className="border-b">
+                                  <th className="text-left p-3 font-medium">Coorte</th>
+                                  <th className="text-center p-3 font-medium">Mês 0</th>
+                                  <th className="text-center p-3 font-medium">Mês 1</th>
+                                  <th className="text-center p-3 font-medium">Mês 2</th>
+                                  <th className="text-center p-3 font-medium">Mês 3</th>
+                                  <th className="text-center p-3 font-medium">Mês 4</th>
+                                  <th className="text-center p-3 font-medium">Mês 5</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr className="border-b">
+                                  <td className="p-3 font-medium">set. de 2025</td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-500 rounded flex items-center justify-center text-white text-sm font-medium">100%</div>
+                                  </td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                </tr>
+                                <tr className="border-b">
+                                  <td className="p-3 font-medium">ago. de 2025</td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-500 rounded flex items-center justify-center text-white text-sm font-medium">100%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-400 rounded flex items-center justify-center text-white text-sm font-medium">74%</div>
+                                  </td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                </tr>
+                                <tr className="border-b">
+                                  <td className="p-3 font-medium">jul. de 2025</td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-500 rounded flex items-center justify-center text-white text-sm font-medium">100%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-400 rounded flex items-center justify-center text-white text-sm font-medium">89%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-400 rounded flex items-center justify-center text-white text-sm font-medium">66%</div>
+                                  </td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                </tr>
+                                <tr className="border-b">
+                                  <td className="p-3 font-medium">jun. de 2025</td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-500 rounded flex items-center justify-center text-white text-sm font-medium">100%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-400 rounded flex items-center justify-center text-white text-sm font-medium">72%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-400 rounded flex items-center justify-center text-white text-sm font-medium">67%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-yellow-500 rounded flex items-center justify-center text-white text-sm font-medium">57%</div>
+                                  </td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                </tr>
+                                <tr className="border-b">
+                                  <td className="p-3 font-medium">mai. de 2025</td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-500 rounded flex items-center justify-center text-white text-sm font-medium">100%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-400 rounded flex items-center justify-center text-white text-sm font-medium">90%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-400 rounded flex items-center justify-center text-white text-sm font-medium">78%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-400 rounded flex items-center justify-center text-white text-sm font-medium">61%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-400 rounded flex items-center justify-center text-white text-sm font-medium">61%</div>
+                                  </td>
+                                  <td className="p-3"><div className="h-8 bg-gray-100 rounded"></div></td>
+                                </tr>
+                                <tr>
+                                  <td className="p-3 font-medium">abr. de 2025</td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-500 rounded flex items-center justify-center text-white text-sm font-medium">100%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-400 rounded flex items-center justify-center text-white text-sm font-medium">96%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-yellow-500 rounded flex items-center justify-center text-white text-sm font-medium">59%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-green-400 rounded flex items-center justify-center text-white text-sm font-medium">69%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-yellow-500 rounded flex items-center justify-center text-white text-sm font-medium">45%</div>
+                                  </td>
+                                  <td className="p-3">
+                                    <div className="h-8 bg-orange-500 rounded flex items-center justify-center text-white text-sm font-medium">37%</div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+
+                          {/* Legend */}
+                          <div className="flex items-center gap-4 mt-6 text-sm">
+                            <span className="font-medium">Retenção:</span>
+                            <div className="flex items-center gap-2">
+                              <div className="w-4 h-4 bg-red-500 rounded"></div>
+                              <span>0-20%</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <div className="w-4 h-4 bg-orange-500 rounded"></div>
+                              <span>20-40%</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <div className="w-4 h-4 bg-yellow-500 rounded"></div>
+                              <span>40-60%</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <div className="w-4 h-4 bg-green-400 rounded"></div>
+                              <span>60-80%</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <div className="w-4 h-4 bg-green-500 rounded"></div>
+                              <span>80-100%</span>
+                            </div>
+                          </div>
+                        </Card>
+                      </TabsContent>
+
+                      <TabsContent value="tendencias">
+                        <div className="space-y-6">
+                          {/* Retention Trends Chart */}
+                          <Card className="p-6">
+                            <h3 className="text-lg font-semibold mb-4">Tendências de Retenção</h3>
+                            <div className="h-64 relative">
+                              <svg className="w-full h-full" viewBox="0 0 800 200">
+                                {/* Grid lines */}
+                                <defs>
+                                  <pattern id="grid" width="80" height="40" patternUnits="userSpaceOnUse">
+                                    <path d="M 80 0 L 0 0 0 40" fill="none" stroke="#f1f5f9" strokeWidth="1"/>
+                                  </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#grid)" />
+                                
+                                {/* Retention lines */}
+                                <polyline fill="none" stroke="#10b981" strokeWidth="3" points="0,20 80,25 160,40 240,45 320,55 400,65 480,75 560,85 640,95 720,105 800,115" />
+                                <polyline fill="none" stroke="#3b82f6" strokeWidth="3" points="0,20 80,30 160,55 240,65 320,75 400,80 480,85 560,90 640,95 720,100 800,105" />
+                                <polyline fill="none" stroke="#ec4899" strokeWidth="3" points="0,20 80,40 160,80 240,120 320,140 400,160 480,180" />
+                                
+                                {/* Data points */}
+                                <circle cx="80" cy="25" r="4" fill="#10b981" />
+                                <circle cx="160" cy="40" r="4" fill="#10b981" />
+                                <circle cx="240" cy="45" r="4" fill="#10b981" />
+                                <circle cx="320" cy="55" r="4" fill="#10b981" />
+                                <circle cx="400" cy="65" r="4" fill="#10b981" />
+                                
+                                <circle cx="80" cy="30" r="4" fill="#3b82f6" />
+                                <circle cx="160" cy="55" r="4" fill="#3b82f6" />
+                                <circle cx="240" cy="65" r="4" fill="#3b82f6" />
+                                <circle cx="320" cy="75" r="4" fill="#3b82f6" />
+                                
+                                <circle cx="80" cy="40" r="4" fill="#ec4899" />
+                                <circle cx="160" cy="80" r="4" fill="#ec4899" />
+                                <circle cx="240" cy="120" r="4" fill="#ec4899" />
+                              </svg>
+                              
+                              {/* X-axis labels */}
+                              <div className="absolute bottom-0 left-0 w-full flex justify-between text-xs text-muted-foreground px-4">
+                                <span>Mês 0</span>
+                                <span>Mês 1</span>
+                                <span>Mês 2</span>
+                                <span>Mês 3</span>
+                                <span>Mês 4</span>
+                                <span>Mês 5</span>
+                              </div>
+                            </div>
+                          </Card>
+
+                          {/* Retention Evolution Chart */}
+                          <Card className="p-6">
+                            <h3 className="text-lg font-semibold mb-4">Evolução da Retenção</h3>
+                            <div className="h-48 relative bg-gradient-to-t from-blue-100 to-transparent rounded-lg">
+                              <svg className="w-full h-full" viewBox="0 0 800 150">
+                                <path d="M 0 130 Q 100 120 200 110 T 400 100 T 600 95 T 800 90" 
+                                      fill="none" 
+                                      stroke="#3b82f6" 
+                                      strokeWidth="2"/>
+                                <path d="M 0 130 Q 100 120 200 110 T 400 100 T 600 95 T 800 90 L 800 150 L 0 150 Z" 
+                                      fill="url(#blueGradient)" 
+                                      opacity="0.3"/>
+                                
+                                <defs>
+                                  <linearGradient id="blueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8"/>
+                                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.1"/>
+                                  </linearGradient>
+                                </defs>
+                              </svg>
+                              
+                              {/* Time labels */}
+                              <div className="absolute bottom-0 left-0 w-full flex justify-between text-xs text-muted-foreground px-4">
+                                <span>set. de 2025</span>
+                                <span>ago. de 2025</span>
+                                <span>jul. de 2025</span>
+                                <span>jun. de 2025</span>
+                                <span>mai. de 2025</span>
+                                <span>abr. de 2025</span>
+                              </div>
+                            </div>
+                          </Card>
+                        </div>
+                      </TabsContent>
+
+                      <TabsContent value="insights-coorte">
+                        <Card className="p-6">
+                          <div className="text-center py-12">
+                            <p className="text-muted-foreground">Insights de coorte em desenvolvimento...</p>
+                          </div>
+                        </Card>
+                      </TabsContent>
+                    </Tabs>
+                  </div>
                 </TabsContent>
               </Tabs>
             </div>
