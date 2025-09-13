@@ -184,8 +184,191 @@ export default function Dashboard() {
           </TabsContent>
 
           <TabsContent value="analytics">
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">Analytics em breve...</p>
+            <div className="space-y-6">
+              {/* Analytics Header */}
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-bold mb-2">Mapa de Calor</h2>
+                  <p className="text-muted-foreground">Visualize onde os usuários mais interagem no seu quiz</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <select className="border border-border rounded-md px-3 py-2 text-sm bg-background">
+                    <option>Cliques</option>
+                    <option>Hovers</option>
+                    <option>Tempo</option>
+                  </select>
+                  <Button variant="outline" size="sm">
+                    <Download className="h-4 w-4 mr-2" />
+                    Exportar
+                  </Button>
+                </div>
+              </div>
+
+              {/* Sub tabs */}
+              <Tabs defaultValue="mapa" className="w-full">
+                <TabsList className="grid w-fit grid-cols-3 mb-6">
+                  <TabsTrigger value="mapa">Mapa de Calor</TabsTrigger>
+                  <TabsTrigger value="testes">Testes A/B</TabsTrigger>
+                  <TabsTrigger value="coorte">Análise de Coorte</TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="mapa">
+                  {/* Analytics Stats */}
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
+                    <Card className="p-6">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm text-muted-foreground mb-1">Total de Cliques</p>
+                          <p className="text-3xl font-bold">733</p>
+                        </div>
+                        <div className="p-2 rounded-lg bg-blue-500">
+                          <div className="h-6 w-6 text-white flex items-center justify-center">
+                            👆
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+
+                    <Card className="p-6">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm text-muted-foreground mb-1">Total de Hovers</p>
+                          <p className="text-3xl font-bold">1.269</p>
+                        </div>
+                        <div className="p-2 rounded-lg bg-green-500">
+                          <div className="h-6 w-6 text-white flex items-center justify-center">
+                            👁️
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+
+                    <Card className="p-6">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm text-muted-foreground mb-1">Tempo Total</p>
+                          <p className="text-3xl font-bold">21s</p>
+                        </div>
+                        <div className="p-2 rounded-lg bg-purple-500">
+                          <div className="h-6 w-6 text-white flex items-center justify-center">
+                            ⏱️
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+
+                    <Card className="p-6">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm text-muted-foreground mb-1">Impacto na Conversão</p>
+                          <p className="text-3xl font-bold">83%</p>
+                        </div>
+                        <div className="p-2 rounded-lg bg-orange-500">
+                          <div className="h-6 w-6 text-white flex items-center justify-center">
+                            🎯
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+
+                  {/* Visualization Tabs */}
+                  <Tabs defaultValue="visualizacao" className="w-full">
+                    <TabsList className="grid w-fit grid-cols-3 mb-6">
+                      <TabsTrigger value="visualizacao">Visualização</TabsTrigger>
+                      <TabsTrigger value="dados">Dados Detalhados</TabsTrigger>
+                      <TabsTrigger value="insights">Insights</TabsTrigger>
+                    </TabsList>
+
+                    <TabsContent value="visualizacao">
+                      <Card className="p-6">
+                        <div className="flex items-center justify-between mb-6">
+                          <h3 className="text-lg font-semibold">Mapa de Calor - Cliques</h3>
+                          <div className="flex items-center gap-4">
+                            <div className="text-sm font-medium">Intensidade</div>
+                            <div className="flex items-center gap-2">
+                              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                              <span className="text-xs text-muted-foreground">Muito Alta</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <div className="w-3 h-3 rounded-full bg-orange-500"></div>
+                              <span className="text-xs text-muted-foreground">Alta</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                              <span className="text-xs text-muted-foreground">Média</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                              <span className="text-xs text-muted-foreground">Baixa</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Heatmap Visualization */}
+                        <div className="relative h-96 bg-gray-50 rounded-lg border border-border overflow-hidden">
+                          <div className="absolute inset-0 p-8">
+                            {/* Simulated heatmap dots */}
+                            <div className="relative w-full h-full">
+                              {/* Green dot - top center */}
+                              <div className="absolute w-6 h-6 bg-green-500 rounded-full opacity-70" 
+                                   style={{ top: '15%', left: '50%', transform: 'translateX(-50%)' }}></div>
+                              
+                              {/* Large red dot - center */}
+                              <div className="absolute w-16 h-16 bg-red-500 rounded-full opacity-70" 
+                                   style={{ top: '40%', left: '50%', transform: 'translateX(-50%)' }}></div>
+                              
+                              {/* Orange dot - left */}
+                              <div className="absolute w-10 h-10 bg-orange-500 rounded-full opacity-70" 
+                                   style={{ top: '50%', left: '25%', transform: 'translate(-50%, -50%)' }}></div>
+                              
+                              {/* Blue dot - right */}
+                              <div className="absolute w-8 h-8 bg-blue-500 rounded-full opacity-70" 
+                                   style={{ top: '50%', right: '15%', transform: 'translateY(-50%)' }}></div>
+                              
+                              {/* Large red dot - bottom */}
+                              <div className="absolute w-14 h-14 bg-red-500 rounded-full opacity-70" 
+                                   style={{ bottom: '15%', left: '50%', transform: 'translateX(-50%)' }}></div>
+                            </div>
+                          </div>
+                        </div>
+                      </Card>
+                    </TabsContent>
+
+                    <TabsContent value="dados">
+                      <Card className="p-6">
+                        <div className="text-center py-12">
+                          <p className="text-muted-foreground">Dados detalhados em desenvolvimento...</p>
+                        </div>
+                      </Card>
+                    </TabsContent>
+
+                    <TabsContent value="insights">
+                      <Card className="p-6">
+                        <div className="text-center py-12">
+                          <p className="text-muted-foreground">Insights em desenvolvimento...</p>
+                        </div>
+                      </Card>
+                    </TabsContent>
+                  </Tabs>
+                </TabsContent>
+
+                <TabsContent value="testes">
+                  <Card className="p-6">
+                    <div className="text-center py-12">
+                      <p className="text-muted-foreground">Testes A/B em desenvolvimento...</p>
+                    </div>
+                  </Card>
+                </TabsContent>
+
+                <TabsContent value="coorte">
+                  <Card className="p-6">
+                    <div className="text-center py-12">
+                      <p className="text-muted-foreground">Análise de Coorte em desenvolvimento...</p>
+                    </div>
+                  </Card>
+                </TabsContent>
+              </Tabs>
             </div>
           </TabsContent>
 
